@@ -18,10 +18,11 @@ class SubmissionDatabase extends SQLite3 {
 		$this->exec("CREATE TABLE ".DATABASE_TABLE_SUBMISSIONS." ".
 			"(id INTEGER PRIMARY KEY AUTOINCREMENT,".
 			"title TEXT DEFAULT '',".
-			"text TEXT DEFAULT '',".
-			"image TEXT DEFAULT '',".
-			"category_id INTEGER,".
-			"category_text TEXT DEFAULT '',".
+			"text_question TEXT,".
+			"text_result TEXT,".
+			"image_question TEXT,".
+			"image_result TEXT,".
+			"category TEXT,".
 			"created_at NUMERIC DEFAULT 0".
 			")"
 		);
@@ -35,7 +36,7 @@ class SubmissionDatabase extends SQLite3 {
 	function getSubmission($id) {
 		$stmt = $this->prepare("SELECT * ".
 		"FROM ".DATABASE_TABLE_SUBMISSIONS." ".
-		"WHERE documents.id=:id");
+		"WHERE id=:id");
 		$stmt->bindValue(":id",$id);
 		$result = $stmt->execute();
 		if ($result)
@@ -53,9 +54,10 @@ class SubmissionDatabase extends SQLite3 {
 
 	//insert or edit
 	function insertSubmission($submission) {
+		
 		$stmt = $this->prepare("INSERT OR REPLACE INTO ".DATABASE_TABLE_SUBMISSIONS." ".
-			"(id,title,text,image,category_id,category_text) VALUES ".
-			"(:id,:title,:text,:image,:category_id,:category_text)"
+			"(id,title,text_question,text_result,image_question,image_result,category) VALUES ".
+			"(:id,:title,:text_question,:text_result,:image_question,:image_result,:category)"
 		);
 
 		foreach ($submission as $key => $value)

@@ -13,18 +13,20 @@
 	$db->insertSubmission(array(
 			"id" => null,
 			"title" => "Life",
-			"text" => "Lorem ipsum",
-			"image" => "sladhkjsad.jpg",
-			"category_id" => 5,
-			"category_text" => "cat2"
+			"text_question" => "Lorem ipsum?",
+			"text_result" => "Lorem ipsum!",
+			"image_question" => "blabla?",
+			"image_result" => "sladhkjsad.jpg",
+			"category" => "event"
 	));
 	$db->insertSubmission(array(
 			"id" => null,
-			"title" => "Life 2",
-			"text" => "Lorem ipsum 2",
-			"image" => "2.jpg",
-			"category_id" => 1,
-			"category_text" => "cat1"
+			"title" => "Life",
+			"text_question" => null,
+			"text_result" => null,
+			"image_question" => "blabla?",
+			"image_result" => "sladhkjsad.jpg",
+			"category" => "location"
 	));
 	
 	$result = $db->listSubmissions();

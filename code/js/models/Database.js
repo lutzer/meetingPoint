@@ -1,6 +1,7 @@
 define([
-        "models/SubmissionCollection"
-], function (SubmissionCollection) {
+        "models/SubmissionCollection",
+        "models/QuestionCollection"
+], function (SubmissionCollection, QuestionCollection) {
 	
 	var instance = null;
 	 
@@ -16,6 +17,7 @@ define([
         initialize: function(){
             
         	this.submissions = new SubmissionCollection();
+        	this.questions = new QuestionCollection();
         	this.sync();
         	
         },
@@ -23,6 +25,7 @@ define([
         sync: function(options) {
         	//fetch data
         	this.submissions.fetch(options);
+        	this.questions.fetch(options);
         }
     };
     

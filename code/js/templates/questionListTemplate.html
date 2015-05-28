@@ -1,0 +1,9 @@
+<div class="center">
+	<h1>Question List</h1>
+	
+	<ul>
+		<% _.each(questions, function(item){ %>
+		<li>Frage: <a href="#question/<%= item.id %>"><%= item.title %></a></li>
+		<% }); %>
+	</ul>
+</div>

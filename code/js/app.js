@@ -23,6 +23,8 @@ define([
 			appRoutes: {
 				/*'projection': 'projection',
 				'blog': 'blog',*/
+				'question/:id' : 'question',
+				'questions/:category' : 'questions',
 				'*actions': 'defaultRoute'
 			}
 		});

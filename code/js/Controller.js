@@ -3,8 +3,11 @@ define([
         'marionette',
         'vent',
     	'models/Database',
+    	'views/MainView',
+    	'views/QuestionListView',
+    	'views/QuestionView',
         'views/dialogs/ModalDialogView'
-], function($, Marionette, Vent, Database, ModalDialogView){
+], function($, Marionette, Vent, Database, MainView, QuestionListView, QuestionView, ModalDialogView){
 	
 	var Controller = Marionette.Controller.extend({
 		
@@ -13,6 +16,7 @@ define([
 			
 			app.addRegions({
 				contentRegion: "#content",
+				modalRegion: "#modal-container"
 			});
 			
 			//register events
@@ -22,9 +26,17 @@ define([
 		
 			
 		/* ROUTES */
+		
+		question: function(id) {
+			this.app.contentRegion.show(new QuestionView({id: id}));
+		},
+		
+		questions: function(category) {
+			this.app.contentRegion.show(new QuestionListView({category : category}));
+		},
 	
 		defaultRoute: function() {
-			//this.app.contentRegion.show(new DocumentListView());
+			this.app.contentRegion.show(new MainView());
 		},
 		
 		/* DIALOGS */

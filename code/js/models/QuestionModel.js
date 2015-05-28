@@ -4,21 +4,22 @@ define([
         'values/Constants'
 ], function(_, Backbone, Constants){
 
-	var SubmissionModel = Backbone.Model.extend({
+	var QuestionModel = Backbone.Model.extend({
 
-		urlRoot : Constants['web_service_url']+"?submissions",
+		urlRoot : Constants['web_service_url']+"?questions",
 		
 		defaults: {
 			title: '',
-			text_question : null,
-			text_result : null,
+			category: null,
+			text_question: null,
+			text_tesult: null,
 			image_question: null,
 			image_result: null,
-			category: null
 		}
+	
 	});
 
 	// Return the model for the module
-	return SubmissionModel;
+	return QuestionModel;
 
 });

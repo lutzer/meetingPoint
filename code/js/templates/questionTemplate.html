@@ -1,0 +1,24 @@
+	<div class="card">
+		<form>
+			<div class="card-content">
+				<h1>Frage: <%= title %></h1>
+				
+				<% if (text_question) { %>
+					<p><%= text_question %></p>
+					<div class="input-field col s12">
+				        <textarea id="textInput" class="materialize-textarea"></textarea>
+			        </div>
+				<% } %>
+				<% if (image_question) { %>
+					<p><%= image_question %></p>
+					<div class="file-field input-field col s12">
+						<div class="btn">
+							<span>Choose file</span> <input id="fileChooser" name='file' type="file" />
+						</div>
+						<div id="filepath" style="height: 4em;"><div><img src="images/placeholder.gif"/></div></div>
+					</div>
+				<% } %>
+				<p><input type="submit" id="submitButton" value="Submit" class="waves-effect waves-light btn"></p>
+			</div>	
+		</form>
+	</div>

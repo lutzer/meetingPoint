@@ -1,0 +1,38 @@
+/* ########### SET VARS ########### */
+
+$font-regular:  Helvetica ;
+$font-bold:  Helvetica ;
+
+$primary-text-color: rgba(0, 0, 0, 0.87);
+$secondary-text-color: rgba(0, 0, 0, 0.5);
+$headline-text-color : #ffffff ;
+
+$page-padding: 1em ;
+$element-padding: 10px ;
+$paragraph-padding: 0.3em ;
+$card-padding: 20px;
+
+$color-picker-size: 3em;
+
+/* ########### DEFINE CSS ###########*/
+body {
+	color: $primary-text-color;
+}
+
+h1 {
+	padding-left:$element-padding;
+	font-size: 130%;
+	margin: 0;
+}
+
+h2 {
+	font-size: 120%;
+	color: $headline-text-color;
+}
+
+a.link {
+	font-weight: bold;
+	color: $primary-text-color;
+}
+
+@import '_modals';

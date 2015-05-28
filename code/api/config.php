@@ -8,6 +8,6 @@ define("DATABASE_TABLE_SUBMISSIONS","submissions");
 define("DATABASE_TOPICS_FILE","topics.sqlite");
 define("DATABASE_TABLE_TOPICS","topics");
 
-define("DIR_SUBMISSIONS_FILES","../../Shared/docs");
+define("DIR_SUBMISSION_FILES","../submissions");
 
 define("UPLOAD_FILE_MAX_SIZE",(8*1024*1024*100)); // 100mb
