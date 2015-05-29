@@ -21,8 +21,8 @@ define([
 		App.Router = new Marionette.AppRouter({
 			controller: new Controller(App),
 			appRoutes: {
-				/*'projection': 'projection',
-				'blog': 'blog',*/
+				'projection': 'projection',
+				'submissions' : 'submissions',
 				'question/:id' : 'question',
 				'questions/:category' : 'questions',
 				'*actions': 'defaultRoute'

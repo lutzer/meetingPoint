@@ -4,10 +4,12 @@ define([
         'vent',
     	'models/Database',
     	'views/MainView',
+    	'views/ProjectionView',
+    	'views/SubmissionListView',
     	'views/QuestionListView',
     	'views/QuestionView',
         'views/dialogs/ModalDialogView'
-], function($, Marionette, Vent, Database, MainView, QuestionListView, QuestionView, ModalDialogView){
+], function($, Marionette, Vent, Database, MainView, ProjectionView, SubmissionListView, QuestionListView, QuestionView, ModalDialogView){
 	
 	var Controller = Marionette.Controller.extend({
 		
@@ -26,6 +28,14 @@ define([
 		
 			
 		/* ROUTES */
+		
+		projection: function() {
+			this.app.contentRegion.show(new ProjectionView());
+		},
+		
+		submissions: function(id) {
+			this.app.contentRegion.show(new SubmissionListView());
+		},
 		
 		question: function(id) {
 			this.app.contentRegion.show(new QuestionView({id: id}));

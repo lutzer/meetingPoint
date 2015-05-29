@@ -1,0 +1,9 @@
+<div class="center">
+	<h1>Submission List</h1>
+	
+	<ul>
+		<% _.each(items, function(item){ %>
+		<li>Frage: <a href="#submission/<%= item.id %>"><%= item.title %></a></li>
+		<% }); %>
+	</ul>
+</div>

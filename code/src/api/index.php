@@ -53,8 +53,6 @@
 					$data['image_result'] = $file['name'];
 				}
 				
-				
-				
 				//insert into database
 				$db = new SubmissionDatabase();
 				$db->insertSubmission($data);
@@ -82,6 +80,16 @@
 				$db->insertSubmission($data);
 				return $db->getSubmission($id);
 			}
+		}
+		
+		/**
+		 *
+		 * @url GET /?submissions/$id
+		 */
+		function deleteSubmission($id) {
+			$db = new SubmissionDatabase();
+			$result = $db->deleteSubmission($id);
+			return array();
 		}
 		
 		/**

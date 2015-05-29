@@ -3,8 +3,8 @@
 
 	<!-- Compile .scss and .sass files in the public/sass directory using SASS -->
 	<target name="sass.compile">
-		<property name="sass.dir" value="sass" />
-		<property name="css.dir" value="css" />
+		<property name="sass.dir" value="src/sass" />
+		<property name="css.dir" value="src/css" />
 
 		<apply executable="sass" dest="${css.dir}" verbose="true" force="true"
 			failonerror="true">

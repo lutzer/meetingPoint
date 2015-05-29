@@ -9,13 +9,15 @@ define([
 	'text!templates/questionListTemplate.html',
 ], function($, _, Backbone, Marionette, Vent, Database, QuestionCollection, template){
 	
-	var View = Marionette.ItemView.extend({
+	var QuestionListView = Marionette.ItemView.extend({
 		
 		initialize: function(options) {
 			
 			this.collection = Database.getInstance().questions;
 			
 		},
+		
+		className: 'page',
 		
 		collectionEvents : {
 			'sync' : 'render'
@@ -36,6 +38,6 @@ define([
 		}
 	});
 	
-	return View;
+	return QuestionListView;
 	
 });

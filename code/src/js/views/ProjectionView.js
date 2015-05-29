@@ -4,10 +4,10 @@ define([
 	'backbone',
 	'marionette',
 	'vent',
-	'text!templates/mainTemplate.html',
+	'text!templates/projectionTemplate.html',
 ], function($, _, Backbone, Marionette, Vent, template){
 	
-	var MainView = Marionette.ItemView.extend({
+	var ProjectionView = Marionette.ItemView.extend({
 		
 		initialize: function(options) {
 			
@@ -20,6 +20,6 @@ define([
 		template : _.template(template)
 	});
 	
-	return MainView;
+	return ProjectionView;
 	
 });

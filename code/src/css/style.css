@@ -1,20 +1,80 @@
 /* ########### SET VARS ########### */
 /* ########### DEFINE CSS ###########*/
 body {
-  color: rgba(0, 0, 0, 0.87); }
+  color: rgba(0, 0, 0, 0.87);
+  margin: 0px; }
 
 h1 {
   padding-left: 10px;
   font-size: 130%;
-  margin: 0; }
+  margin: 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1); }
 
 h2 {
   font-size: 120%;
-  color: #ffffff; }
+  color: #ffffff;
+  margin: 0; }
 
-a.link {
+a {
   font-weight: bold;
-  color: rgba(0, 0, 0, 0.87); }
+  color: #eeeeee;
+  text-decoration: none; }
+
+.page {
+  background-color: #000000;
+  height: 100%;
+  width: 100%; }
+
+.page > div {
+  padding: 1em; }
+
+.page .logo {
+  text-align: center;
+  padding-top: 2em;
+  padding-bottom: 2em; }
+  .page .logo img {
+    height: 80%; }
+
+.page-top {
+  position: absolute;
+  top: 0px;
+  left: 1em;
+  right: 1em;
+  bottom: 70%; }
+
+.page-bottom {
+  position: absolute;
+  top: 30%;
+  left: 1em;
+  right: 1em;
+  bottom: 1em; }
+
+/*
+ * BUTTONS AND LINKS
+ */
+.mainLink {
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px; }
+
+.mainLink a {
+  font-weight: bold;
+  display: block;
+  padding: 2em; }
+
+/*
+ * HELPERS
+ */
+.middle-parent {
+  display: table; }
+
+.middle-parent.fill {
+  width: 100%;
+  height: 100%; }
+
+.middle {
+  display: table-cell;
+  vertical-align: middle; }
 
 /*
  * MODAL DIALOG
@@ -78,5 +138,14 @@ a.link {
 
 .modal-dialog li {
   display: inline-block; }
+
+.green {
+  background-color: #6cb52d; }
+
+.blue {
+  background-color: #1bb5ff; }
+
+.pink {
+  background-color: #e94190; }
 
 /*# sourceMappingURL=style.css.map */

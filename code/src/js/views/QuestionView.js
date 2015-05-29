@@ -20,6 +20,8 @@ define([
 			
 		},
 		
+		className: 'page',
+		
 		modelEvents: {
 			'sync' : 'render'
 		},
@@ -56,7 +58,7 @@ define([
 					files: this.$('#fileChooser'),
 					data: values,
 					success: function(model,response) {
-						if ('error' in response)
+						if (response.error !== undefined)
 							onError(response.error.message);
 						else
 							onSuccess();
@@ -78,7 +80,7 @@ define([
 			
 			//open upload dialog
 			Vent.trigger('dialog:open', {
-				title: "Uploading Document", 
+				title: "Uploading Submission", 
 				text: "Depending on the file size, this may take a while.", 
 				type: 'progress',
 				callback: function() {
