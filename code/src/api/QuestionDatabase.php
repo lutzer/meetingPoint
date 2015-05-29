@@ -6,16 +6,41 @@ class QuestionDatabase {
 	function __construct() {
 		
 		$this->questions = array();
+		array_push ( $this->questions, array (
+		"title" => "Describe this space",
+		"category" => "location",
+		"image_question" => "Make both a selfie and write some text.",
+		"text_question" => "Describe yourself in a few sentences."
+				));
+		array_push ( $this->questions, array (
+				"title" => "Describe this space",
+				"category" => "location",
+				"image_question" => "Make both a selfie and write some text.",
+				"text_question" => "Describe yourself in a few sentences." 
+		) );
+		array_push ( $this->questions, array (
+				"title" => "Describe this space",
+				"category" => "location",
+				"image_question" => "Make both a selfie and write some text.",
+				"text_question" => "Describe yourself in a few sentences." 
+		) );
+		
+		array_push ( $this->questions, array (
+			"title" => "Describe this space",
+			"category" => "location",
+			"image_question" => "Make both a selfie and write some text.",
+			"text_question" => "Describe yourself in a few sentences." 
+		));
 		
 		array_push($this->questions,array(
-			"title" => "test loc",
-			"category" => "location",
+			"title" => "Describe yourself.",
+			"category" => "people",
 			"image_question" => "Make both a selfie and write some text.",
 			"text_question" => "Describe yourself in a few sentences."
 		));
 		
 		array_push($this->questions,array(
-			"title" => "test2 people",
+			"title" => "Tell us something about the people here.",
 			"category" => "people",
 			"image_question" => "Make only a selfie.",
 			"text_question" => null

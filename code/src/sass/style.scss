@@ -3,39 +3,47 @@
 $font-regular:  Helvetica ;
 $font-bold:  Helvetica ;
 
-$primary-text-color: rgba(0, 0, 0, 0.87);
-$secondary-text-color: rgba(0, 0, 0, 0.5);
-$headline-text-color : #ffffff ;
+$primary-text-color: rgba(255, 255, 255, 0.91);
+$headline-color: #ffffff;
 $border-color: rgba(0,0,0,0.1);
-$linkColor: #eeeeee;
+$linkColor: rgba(255, 255, 255, 0.91);
 
 $mobile-background-color : #000000;
 
 $page-padding: 1em ;
 $element-padding: 10px ;
 $paragraph-padding: 0.3em;
-$button-padding: 2em;
+$button-padding: 30px;
 
 $color-picker-size: 3em;
+
+/* ########### FONTS ########### */
+
+@font-face {
+	font-family: 'acto';
+	src: url('../fonts/Acto-Bold.otf');
+	font-weight: bold;
+};
+@font-face {
+	font-family: 'acto';
+	src: url('../fonts/Acto-Medium.otf');
+	font-weight: normal;
+};
+
 
 /* ########### DEFINE CSS ###########*/
 
 body {
 	color: $primary-text-color;
 	margin:0px;
+	font-family: acto;
 } 
-
+ 
 h1 {
-	padding-left:$element-padding;
-	font-size: 130%;
-	margin: 0;
-	border-bottom: 1px solid $border-color;
-}
-
-h2 {
-	font-size: 120%;
-	color: $headline-text-color;
-	margin:0;
+	text-align:center;
+	font-weight:normal;
+	font-size:150%;
+	color: $headline-color;
 }
 
 a {
@@ -58,27 +66,32 @@ a {
 	
 	text-align: center;
 	padding-top: $button-padding;
-	padding-bottom: $button-padding;
+	/*padding-bottom: $button-padding;*/
 	
 	img {
 		height:80%
 	}
 }
 
+.page .logo.small img {
+	height:50%;
+}
+
 .page-top {
-	position:absolute;
+	position:fixed;
 	top:0px;
 	left:$page-padding;
 	right:$page-padding;
-	bottom:70%;
+	bottom:73%;
 }
 
 .page-bottom {
-	position:absolute;
-	top:30%;
+	position:fixed;
+	top:27%;
 	left:$page-padding;
 	right:$page-padding;
 	bottom:$page-padding;
+	overflow-x: auto;
 }
 
 /*
@@ -87,9 +100,10 @@ a {
 
 .mainLink {
 	text-align: center;
-	
 	margin-top: $element-padding;
 	margin-bottom: $element-padding;
+	font-weight:bold;
+	font-size: 120%;
 }
 
 .mainLink a {

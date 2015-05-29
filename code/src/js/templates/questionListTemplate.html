@@ -1,9 +1,11 @@
-<div class="center">
-	<h1>Question List</h1>
-	
-	<ul>
-		<% _.each(questions, function(item){ %>
-		<li>Frage: <a href="#question/<%= item.id %>"><%= item.title %></a></li>
-		<% }); %>
-	</ul>
+<div>
+	<div class="logo small page-top">
+		<a href="#"><img src="images/logo.png"></a>
+		<h1><%= headline %></h1>
+	</div>
+	<div class="page-bottom">
+			<% _.each(questions, function(item){ %>
+			<div class="mainLink <%= color %>"><a href="#question/<%= item.id %>"><%= item.title %></a></div>
+			<% }); %>
+	</div>
 </div>
