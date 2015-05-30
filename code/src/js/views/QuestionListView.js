@@ -4,10 +4,11 @@ define([
 	'backbone',
 	'marionette',
 	'vent',
+	'values/Constants',
 	'models/Database',
 	'models/QuestionCollection',
 	'text!templates/questionListTemplate.html',
-], function($, _, Backbone, Marionette, Vent, Database, QuestionCollection, template){
+], function($, _, Backbone, Marionette, Vent, Constants, Database, QuestionCollection, template){
 	
 	var QuestionListView = Marionette.ItemView.extend({
 		
@@ -15,17 +16,9 @@ define([
 			
 			this.collection = Database.getInstance().questions;
 			
-			// set headline
-			if (options.category == "people") {
-				this.headline = "THE PEOPLE";
-				this.color = "green"
-			} else if (options.category == "location") {
-				this.headline = "THE SPACE";
-				this.color = "blue";
-			} else if (options.category == "event") {
-				this.headline = "THE MEETING POINT";
-				this.color = "pink"
-			}
+			// set headline and color
+			this.headline = Constants.categories[options.category].name;
+			this.color = Constants.categories[options.category].color;
 			
 		},
 		

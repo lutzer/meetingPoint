@@ -1,23 +1,24 @@
-	<div class="card">
-		<form>
-			<h1>Frage: <%= title %></h1>
-			<div class="card-content">
-				<% if (text_question) { %>
-					<p><%= text_question %></p>
-					<div class="input-field col s12">
-				        <textarea id="textInput" class="materialize-textarea"></textarea>
-			        </div>
-				<% } %>
-				<% if (image_question) { %>
-					<p><%= image_question %></p>
-					<div class="file-field input-field col s12">
-						<div class="btn">
-							<span>Choose file</span> <input id="fileChooser" name='file' type="file" />
-						</div>
-						<div id="filepath" style="height: 4em;"><div><img src="images/placeholder.gif"/></div></div>
-					</div>
-				<% } %>
-				<p><input type="submit" id="submitButton" value="Submit" class="waves-effect waves-light btn"></p>
-			</div>	
-		</form>
-	</div>
+<div>
+	<h2 class="<%= color %>-text"><%= title %></h2>
+	<form>
+		<% if (image_question) { %>
+			
+			<div class="file-field">
+				<p><%= image_question %></p>
+				<label for="fileChooser"><span class="btn">TAKE PICTURE</span></label>
+				<input id="fileChooser" name='file' type="file" style="display:none"/>
+				<div id="filepath"></div>
+			</div>
+		<% } %>
+		<% if (text_question) { %>
+			<div class="input-field">
+				<p><label for="textInput"><%= text_question %></label></p>
+				<textarea id="textInput" placeholder="Type text here."></textarea>
+	        </div>
+		<% } %>
+		<div>
+			<a href="#!" class="btn small left" id="cancelButton">CANCEL</a>
+			<a href="#!" class="btn small right <%= color %>" id="submitButton">SUBMIT</a>
+		</div>
+	</form>
+</div>

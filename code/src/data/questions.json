@@ -1,0 +1,38 @@
+[
+	{
+		"title": "Describe this space.",
+		"category": "location",
+		"image_question": "Make both a selfie and write some text.",
+		"text_question": "Describe yourself in a few sentences."
+	},
+	{
+		"title": "Describe this space with picture and text.",
+		"category": "location",
+		"image_question": "Make both a selfie and write some text.",
+		"text_question": "Describe yourself in a few sentences."
+	},
+	{
+		"title": "Describe this space with only a picture.",
+		"category": "location",
+		"image_question": "Make both a selfie and write some text.",
+		"text_question": null
+	},
+	{
+		"title" : "Describe yourself and make a picture.",
+		"category" : "people",
+		"image_question" : "Make both a selfie and write some text.",
+		"text_question" : "Describe yourself in a few sentences."
+	},
+	{
+		"title" : "Tell us something about the people here.",
+		"category" : "people",
+		"image_question" : null,
+		"text_question" : "Lorem ipsum äööiii"
+	},
+	{
+		"title" : "test2 event",
+		"category" : "event",
+		"image_question" : null,
+		"text_question" : "Only Describe yourself in a few sentences."
+	}
+]

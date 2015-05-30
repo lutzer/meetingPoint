@@ -4,6 +4,7 @@
 	require_once("SubmissionDatabase.php");
 	require_once("QuestionDatabase.php");
 	require_once('RestServer.php');
+	require_once('Validator.php');
 	
 
 	class Controller {
@@ -40,18 +41,33 @@
 			
 			if ($data == null)
 				$data = $_POST;
+			else 
+				$data = get_object_vars($data);
+			
+			//var_dump($data);
+			
+			//check if file submitted
+			$file = false;
+			if (isset($_FILES['file']) && !empty($_FILES['file']['name']) && $_FILES['file']['size'] > 0) {
+				$file = $_FILES['file'];
+				$data['image_result'] = $file['name'];
+			}
+			
+			//validate
+			$validationRules = array();
+			if (isset($data['text_question']) && !empty($data['text_question']))
+				$validationRules['text_result'] = VALIDATE_RULE_NON_EMPTY_STRING | VALIDATE_RULE_REQUIRED;
+			if (isset($data['image_question']) && !empty($data['image_question']))
+				$validationRules['image_result'] = VALIDATE_RULE_NON_EMPTY_STRING | VALIDATE_RULE_REQUIRED;
+			
+			$validator = new Validator($data);
+			$errors = $validator->validate($validationRules);
+			if (!empty($errors))
+				throw new RestException(400, implode(" ",$errors));
+				
 			
 			//add new entry
 			if ($id == null) {
-				
-				//check if file submitted
-				$fileSubmitted = isset($_FILES['file']) && !empty($_FILES['file']['name']);
-				$file = null;
-				
-				if ($fileSubmitted) {
-					$file = $_FILES['file'];
-					$data['image_result'] = $file['name'];
-				}
 				
 				//insert into database
 				$db = new SubmissionDatabase();
@@ -59,7 +75,7 @@
 				$id = $db->lastInsertRowid();
 				
 				//upload file
-				if ($fileSubmitted) {
+				if ($file) {
 					$upload_dir = DIR_SUBMISSION_FILES.'/'.$id;
 					try {
 						checkFileType($file['name'],array("jpg", "jpeg", "gif", "png"));

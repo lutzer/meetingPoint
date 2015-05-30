@@ -4,10 +4,11 @@ define([
 	'backbone',
 	'marionette',
 	'vent',
+	'values/Constants',
 	'models/QuestionModel',
 	'models/SubmissionModel',
 	'text!templates/questionTemplate.html',
-], function($, _, Backbone, Marionette, Vent, QuestionModel, SubmissionModel, template){
+], function($, _, Backbone, Marionette, Vent, Constants, QuestionModel, SubmissionModel, template){
 	
 	var QuestionView = Marionette.ItemView.extend({
 		
@@ -33,6 +34,19 @@ define([
 		
 		template : _.template(template),
 		
+		templateHelpers: function() {
+			return {
+				color : this.getColor()
+			}
+		},
+		
+		getColor: function() {
+			if (this.model.get('category'))
+				return Constants.categories[this.model.get('category')].color
+			else
+				return ''	
+		},
+		
 		onSubmit: function(event) {
 			
 			event.preventDefault();
@@ -51,41 +65,33 @@ define([
 
 			var model = new SubmissionModel(values);
 			
+			var options = {
+				success: function(model,response) {
+					if (response.error !== undefined)
+						onError(response.error.message);
+					else
+						onSuccess();
+				},
+				error: function(model,response) {
+					console.log(response);
+					onError(response.responseJSON.error.message);
+				}
+			}
 			//upload file if file is selected
 			if (this.fileSelected) {
-				model.save(values, { 
-					iframe: true,
-					files: this.$('#fileChooser'),
-					data: values,
-					success: function(model,response) {
-						if (response.error !== undefined)
-							onError(response.error.message);
-						else
-							onSuccess();
-					},
-					error: function(model,response) {
-						onError(response.responseText);
-					}
-				});
-			} else {
-				model.save(values, {
-					success: function(model,response) {
-						onSuccess();
-					},
-					error: function(model,response) {
-						onError(response.responseText);
-					}
-				});
+				options.iframe = true;
+				options.files = this.$('#fileChooser');
+				options.data = values;
 			}
+			
+			// send data
+			model.save(values, options);
 			
 			//open upload dialog
 			Vent.trigger('dialog:open', {
-				title: "Uploading Submission", 
-				text: "Depending on the file size, this may take a while.", 
-				type: 'progress',
-				callback: function() {
-					window.location.href = "#upload";
-				}
+				title: "Sending Data", 
+				text: "Depending on the submission size, this may take a few seconds...", 
+				type: 'progress'
 			});
 			
 			function onError(message) {
@@ -100,7 +106,10 @@ define([
 				Vent.trigger('dialog:open', {
 					title: "Data submitted", 
 					text: "Thank you! Your Post got submitted.", 
-					type: 'message'
+					type: 'message',
+					callback: function() {
+						window.location.href = "#";
+					}
 				});
 				//Vent.trigger('dialog:close');
 			}

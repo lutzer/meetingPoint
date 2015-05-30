@@ -5,8 +5,7 @@ define("DATABASE_FILE","../data/submissions.sqlite");
 define("DATABASE_TABLE_SUBMISSIONS","submissions");
 
 // questions database
-define("DATABASE_QUESTIONS_FILE","../data/submissions.sqlite");
-define("DATABASE_TABLE_QUESTIONS","questions");
+define("DATABASE_QUESTIONS_FILE","../data/questions.json");
 
 define("DIR_SUBMISSION_FILES","../data/submissions");
 

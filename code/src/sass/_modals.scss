@@ -30,16 +30,25 @@ $modal-bg-color: #bdbdbd ;
     max-height:70%;
     overflow-y: scroll;
     overflow-x: hidden;
+    color: #000;
 }
 
 .modal-dialog h2 {
 	display:inline;
-	padding:$element-padding;
+	padding-top:$element-padding;
+	padding-bottom:$element-padding;
 	margin:0;
+	border: none;
+	color:#000;
 }
 
 .modal-dialog p {
-	padding:$element-padding;
+	padding-top:$element-padding;
+	padding-bottom:$element-padding;
+	margin:0;
+} 
+
+.modal-dialog .btn {
 	margin:0;
 } 
 
