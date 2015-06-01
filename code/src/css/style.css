@@ -12,7 +12,8 @@
 body {
   color: rgba(255, 255, 255, 0.91);
   margin: 0px;
-  font-family: acto; }
+  font-family: acto;
+  background-color: #000000; }
 
 h1 {
   text-align: center;
@@ -33,7 +34,6 @@ a {
   text-decoration: none; }
 
 .page {
-  background-color: #000000;
   height: 100%;
   width: 100%; }
 

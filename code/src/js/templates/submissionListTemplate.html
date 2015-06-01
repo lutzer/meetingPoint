@@ -1,9 +1,11 @@
-<div class="center">
-	<h1>Submission List</h1>
-	
-	<ul>
-		<% _.each(items, function(item){ %>
-		<li>Frage: <a href="#submission/<%= item.id %>"><%= item.title %></a></li>
-		<% }); %>
-	</ul>
+<div>
+	<div class="logo small page-top">
+		<a href="#"><img src="images/logo.png"></a>
+		<h1>Submissions</h1>
+	</div>
+	<div class="page-bottom">
+			<% _.each(items, function(item){ %>
+			<div><a href="#submission/<%= item.id %>"><%= item.text_result %></a></div>
+			<% }); %>
+	</div>
 </div>
